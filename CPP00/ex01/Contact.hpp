@@ -1,5 +1,7 @@
 #include <string>
 #include <iostream>
+#include <iomanip>
+#include <vector>
 
 using namespace std;
 
@@ -11,8 +13,10 @@ class Contact
 		string	first_name;
 		string	last_name;
 		string	nickname;
-		int		phone_number;
+		string	phone_number;
 		string	darkest_secret;
 	public:
-		
+		void	add_contact();
+		void	print_contacts();
+		void	print_contact_details();
 };
