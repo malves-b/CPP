@@ -50,7 +50,6 @@ class Account {
 		bool	makeWithdrawal( int withdrawal );
 		int		checkAmount( void ) const;
 		void	displayStatus( void ) const;
-
 };
 
 
