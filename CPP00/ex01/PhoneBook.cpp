@@ -20,7 +20,7 @@ void	PhoneBook::SEARCH(){
 		contacts[i].print_contacts();
 	}
     std::cout << "--------------------------------|" << std::endl;
-	int index;
+	short index;
 	cout << "Enter the index of the contact to display details: ";
 	cin >> index;
 	if (index >= 0 && index < 8)
