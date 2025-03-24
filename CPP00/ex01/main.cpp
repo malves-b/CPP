@@ -2,22 +2,28 @@
 
 int main(void)
 {
-	PhoneBook	newList;
-	string		input;
+    PhoneBook newList;
+    std::string input;
 
-	while (1)
-	{
-		cout << "\nEnter a command (ADD, SEARCH, EXIT): ";
-		cin >> input;
+    while (true) {
+        std::cout << "\nEnter a command (ADD, SEARCH, EXIT): ";
 
-		if (input == "ADD")
-			newList.ADD();
-		else if (input == "SEARCH")
-			newList.SEARCH();
-		else if (input == "EXIT")
-			newList.EXIT();
-		else
-			cout << "Invalid command! ";
-	}	
-	return 0;
+        if (!(std::cin >> input)) {
+            if (std::cin.eof())
+				std::cout << "\n--- Ctrl + D detected. Exiting program. ---\n";
+			exit(1);
+        } else {
+            if (input == "ADD")
+                newList.ADD();
+            else if (input == "SEARCH")
+                newList.SEARCH();
+            else if (input == "EXIT") {
+                newList.EXIT();
+                break;
+            } else {
+                std::cout << "Invalid command! ";
+            }
+        }
+    }
+    return 0;
 }

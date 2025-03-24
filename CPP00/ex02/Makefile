@@ -1,4 +1,4 @@
-TARGET := Ex02
+TARGET := account
 SRC := Account.cpp tests.cpp
 CC = c++
 CFLAGS = -g -Wall -Wextra -Werror -std=c++98

@@ -1,8 +1,7 @@
 #pragma once
 #include "Contact.hpp"
 #include <cstdlib>
-
-using namespace std;
+#include <limits>
 
 class PhoneBook{
 	private:

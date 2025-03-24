@@ -7,7 +7,7 @@ void PhoneBook::update_oldest(){
 }
 
 void	PhoneBook::ADD(){
-	cout << "\n--- Adding a new contact ---\n" << endl;
+	std::cout << "\n--- Adding a new contact ---\n" << std::endl;
 	contacts[oldest].add_contact();
 	update_oldest();
 }
@@ -21,12 +21,17 @@ void	PhoneBook::SEARCH(){
 	}
     std::cout << "--------------------------------|" << std::endl;
 	short index;
-	cout << "Enter the index of the contact to display details: ";
-	cin >> index;
-	if (index >= 0 && index < 8)
+	std::cout << "Enter the index of the contact to display details: ";
+	std::cin >> index;
+	if (std::cin.fail()){
+		std::cin.clear();
+		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+		std::cout << "Invalid input!" << std::endl;
+	}
+	else if (index >= 0 && index < 8)
 		contacts[index].print_contact_details();
 	else
-		cout << "Invalid index!" << endl;
+		std::cout << "Invalid index!" << std::endl;
 }
 
 void PhoneBook::EXIT() {

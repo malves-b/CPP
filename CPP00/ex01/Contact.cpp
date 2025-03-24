@@ -1,37 +1,63 @@
 #include "Contact.hpp"
 
+std::string	set_variable(void){
+    std::string input;
+	if (!(std::cin >> input)) {
+		if (std::cin.eof()) {
+			std::cout << "\n--- Ctrl + D detected. Exiting program. ---\n";
+			exit(1);
+		}
+	}
+	return (input);
+}
+
 void	Contact::add_contact()
 {
-	cout << "First name: ";
-	cin >> first_name;
-	cout << "Last name: ";
-	cin >> last_name;
-	cout << "Nickname: ";
-	cin >> nickname;
-	cout << "Phone number: ";
-	cin >> phone_number;
-	cout << "Darkest secret: ";
-	cin >> darkest_secret;
+	std::cout << "First name: ";
+	first_name = set_variable();
+	std::cout << "Last name: ";
+	last_name = set_variable();
+	std::cout << "Nickname: ";
+	nickname = set_variable();
+	while (true) {
+        std::cout << "Phone number (int): ";
+        std::cin >> phone_number;
+        if (std::cin.fail()) {
+            std::cin.clear();
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+            std::cout << "Invalid input! Please enter a valid integer for the phone number." << std::endl;
+        }
+		else {break;}
+    }
+	std::cout << "Darkest secret: ";
+	darkest_secret = set_variable();
 
-	if (first_name.empty() || last_name.empty() || nickname.empty() || phone_number.empty() || darkest_secret.empty()) {
-        cout << "All fields must be filled!" << endl;
+	if (first_name.empty() || last_name.empty() || nickname.empty() || darkest_secret.empty()) {
+        std::cout << "All fields must be filled!" << std::endl;
         add_contact();
     }
 }
 
-
-void	Contact::print_contacts()
+std::string truncate_and_add_dot(const std::string& str)
 {
-	cout << left;
-	cout << setw(10) << first_name.substr(0, 10) << "|";
-	cout << setw(10) << last_name.substr(0, 10) << "|";
-	cout << setw(10) << nickname.substr(0, 10) << "|" << endl;
+	if (str.size() > 10) {
+		return str.substr(0, 9) + ".";
+	}
+	return str;
+}
+
+void Contact::print_contacts() {
+   
+    std::cout << std::left;
+    std::cout << std::setw(10) << truncate_and_add_dot(first_name) << "|";
+    std::cout << std::setw(10) << truncate_and_add_dot(last_name) << "|";
+    std::cout << std::setw(10) << truncate_and_add_dot(nickname) << "|" << std::endl;
 }
 
 void Contact::print_contact_details() {
-    cout << "\nFirst name: " << first_name << endl;
-    cout << "Last name: " << last_name << endl;
-    cout << "Nickname: " << nickname << endl;
-    cout << "Phone number: " << phone_number << endl;
-    cout << "Darkest secret: " << darkest_secret << endl;
+    std::cout << "\nFirst name: " << first_name << std::endl;
+    std::cout << "Last name: " << last_name << std::endl;
+    std::cout << "Nickname: " << nickname << std::endl;
+    std::cout << "Phone number: " << phone_number << std::endl;
+    std::cout << "Darkest secret: " << darkest_secret << std::endl;
 }
