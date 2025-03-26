@@ -1,5 +1,5 @@
-TARGET := brain
-SRC := main.cpp
+TARGET := WAR
+SRC := main.cpp HumanA.cpp HumanB.cpp Weapon.cpp
 CC = c++
 CFLAGS = -g -Wall -Wextra -Werror -std=c++98
 RM = rm -f
