@@ -13,7 +13,6 @@ int main(int argc, char const *argv[])
 	s1 = argv[2];
 	s2 = argv[3];
 	filename_replace = filename + ".replace";
-
 	std::ifstream file(filename.c_str());
 	if (!file){
 		return (std::cout << "Impossible open the file!\n", 1);}
