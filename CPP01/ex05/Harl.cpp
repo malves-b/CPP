@@ -25,16 +25,16 @@ Harl::~Harl(){};
 
 void	Harl::complain(std::string level)
 {
-	void (Harl::*func)(void);
+	std::string levels[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
+	void (Harl::*func[4])() = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
 
-	if (level == "DEBUG")
-		func = &Harl::debug;
-	else if (level == "INFO")
-		func = &Harl::info;
-	else if (level == "WARNING")
-		func = &Harl::warning;
-	else if (level == "ERROR")
-		func = &Harl::error;
-	else {std::cout << "Invalid level!" << std::endl; return;}
-	(this->*func)();
+	for (size_t i = 0; i < 4; i++)
+	{
+		if (level == levels[i])
+		{
+			(this->*func[i])();
+			return ;
+		}
+	}
+	std::cout << "Invalid level!" << std::endl;
 }
