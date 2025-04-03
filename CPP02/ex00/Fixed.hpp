@@ -6,16 +6,12 @@
 class Fixed
 {
 private:
-	/* data */
+	int			fix_point;
+	static int	frac_bits;
 public:
 	Fixed(/* args */);
+	Fixed(void);
 	~Fixed();
+	int		getRawBits(void) const;
+	void	setRawBits(int const raw);
 };
-
-Fixed::Fixed(/* args */)
-{
-}
-
-Fixed::~Fixed()
-{
-}
