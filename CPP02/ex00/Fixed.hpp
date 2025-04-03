@@ -2,16 +2,18 @@
 
 #include <iostream>
 #include <string>
+#include <cmath>
 
 class Fixed
 {
 private:
-	int			fix_point;
-	static int	frac_bits;
+	static const int	fracBits = 8;
+	int			rawBits;
 public:
-	Fixed(/* args */);
+	Fixed(Fixed &a);
 	Fixed(void);
 	~Fixed();
+	Fixed&	operator=(const Fixed& other);
 	int		getRawBits(void) const;
 	void	setRawBits(int const raw);
 };
