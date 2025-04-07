@@ -1,3 +1,6 @@
+#ifndef FIXED_00
+# define FIXED_00
+
 #pragma once
 
 #include <iostream>
@@ -17,3 +20,5 @@ public:
 	int		getRawBits(void) const;
 	void	setRawBits(int const raw);
 };
+
+#endif

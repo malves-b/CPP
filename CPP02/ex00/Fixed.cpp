@@ -1,4 +1,4 @@
-#include "Fixed.hpp"
+#include "./Fixed.hpp"
 
 Fixed::Fixed(Fixed &a)
 {

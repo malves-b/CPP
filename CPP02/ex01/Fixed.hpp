@@ -1,3 +1,6 @@
+#ifndef FIXED_01
+# define FIXED_01
+
 #pragma once
 
 #include <iostream>
@@ -22,3 +25,5 @@ public:
 };
 
 std::ostream& operator<<(std::ostream& out, const Fixed& value);
+
+#endif
