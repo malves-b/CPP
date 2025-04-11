@@ -25,7 +25,7 @@ public:
 	float toFloat(void) const;
 	int	toInt(void) const;
 	
-	// Comp Operators
+	// Operadores de comp
 	bool operator>(const Fixed& other) const;
 	bool operator<(const Fixed& other) const;
 	bool operator>=(const Fixed& other) const;
@@ -33,13 +33,13 @@ public:
 	bool operator==(const Fixed& other) const;
 	bool operator!=(const Fixed& other) const;
 	
-	//
+	//Operadores aritm
 	Fixed operator+(const Fixed& other) const;
 	Fixed operator-(const Fixed& other) const;
 	Fixed operator*(const Fixed& other) const;
 	Fixed operator/(const Fixed& other) const;
 	
-	//Increase/decrease
+	//Incremento/Decremento
 	Fixed& operator--();
 	Fixed operator--(int);
 	Fixed& operator++();
