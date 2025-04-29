@@ -1,5 +1,5 @@
 TARGET := Exe
-SRC := main.cpp ClapTrap.cpp ScavTrap.cpp
+SRC := main.cpp ClapTrap.cpp ScavTrap.cpp FragTrap.cpp
 CC = c++
 CFLAGS = -g -Wall -Wextra -Werror -std=c++98
 RM = rm -f
