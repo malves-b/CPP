@@ -10,8 +10,10 @@ DiamondTrap::DiamondTrap(): ClapTrap("Default_clap_name"), name("Default")
 }
 
 //String constructor
-DiamondTrap::DiamondTrap(std::string name): ClapTrap(name + "_clap_name"), name(name) 
+DiamondTrap::DiamondTrap(std::string name)
+	: ClapTrap(name + "_clap_name"), ScavTrap(), FragTrap(), name(name)
 {
+	// ClapTrap::name = name + "_clap_name";
 	this->hitPoints = FragTrap::hitPoints;
 	this->energyPoints = ScavTrap::energyPoints;
 	this->attackDamage = FragTrap::attackDamage;
