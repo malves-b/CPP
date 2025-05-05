@@ -17,12 +17,30 @@ public:
 	Animal(void);
 	Animal(std::string type);
 	Animal(const Animal &cpy);
-
 	Animal &operator=(const Animal &other);
 
 	virtual ~Animal();
 
 	std::string getType(void)const;
-	virtual	void	makeSound(void)const = 0;
+	virtual	void	makeSound() const;
 };
 
+class Cat : public Animal {
+public:
+	Cat(void);
+	Cat(const Cat &cpy);
+	Cat &operator=(const Cat &other);
+
+	~Cat();
+	virtual void makeSound(void) const;
+};
+
+class Dog : public Animal {
+public:
+	Dog(void);
+	Dog(const Dog &cpy);
+	Dog &operator=(const Dog &other);
+	~Dog();
+
+	virtual void makeSound(void) const;
+};

@@ -1,4 +1,4 @@
-#include "Animal.hpp"
+#include "Animals.hpp"
 
 //Default constructor
 Animal::Animal(void)
@@ -34,3 +34,7 @@ Animal &Animal::operator=(const Animal &other)
 Animal::~Animal(){std::cout << "Animal: Destructor called" << std::endl;}
 
 std::string Animal::getType(void)const{return std::string(this->type);}
+
+void Animal::makeSound() const{
+	std::cout << "Animal: abstract sound" << std::endl;
+}

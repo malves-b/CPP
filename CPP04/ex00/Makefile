@@ -1,5 +1,5 @@
 TARGET := Exe
-SRC := Dog.cpp Cat.cpp Animal.cpp main.cpp
+SRC := Dog.cpp Cat.cpp Animals.cpp main.cpp WrongAnimal.cpp WrongCat.cpp
 CC = c++
 CFLAGS = -g -Wall -Wextra -Werror -std=c++98
 RM = rm -f

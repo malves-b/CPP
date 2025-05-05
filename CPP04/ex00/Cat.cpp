@@ -1,16 +1,14 @@
-#include "Cat.hpp"
+#include "Animals.hpp"
 
 //Default constructor
-Cat::Cat(void): Animal("Cat")
-{
+Cat::Cat(void): Animal("Cat"){
 	std::cout << "Cat: Default constructor" << std::endl;
 }
 
-//Copt constructor
-Cat::Cat(const Cat &cpy)
-{
+//Copy constructor
+Cat::Cat(const Cat &cpy){
 	std::cout << "Cat: Copy constructor called" << std::endl;
-	*this = cpy;	
+	*this = cpy;
 }
 
 //Copy assignment operator
