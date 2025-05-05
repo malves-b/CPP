@@ -9,9 +9,9 @@ protected:
 public:
 	WrongAnimal();
 	WrongAnimal(std::string type);
-	~WrongAnimal(); // opcional
+	~WrongAnimal();
 	std::string getType() const;
-	void makeSound() const; // NOT virtual
+	void makeSound() const;
 };
 
 class WrongCat : public WrongAnimal {
