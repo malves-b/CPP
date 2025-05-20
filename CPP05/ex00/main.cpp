@@ -2,14 +2,40 @@
 
 int main()
 {
-	Bureaucrat x = Bureaucrat("carlo", 151); 
-	Bureaucrat y = Bureaucrat("alirio", 0);
-	Bureaucrat right = Bureaucrat("right", 10);
+	Bureaucrat	amauri;
+	Bureaucrat	jao;
 
-	for (size_t i = 0; i < 15; i++)
+	// ----- test1 -----
+	try{
+		jao = Bureaucrat("Alirio", 151);}
+	catch(const std::exception& e){
+		std::cerr << e.what() << '\n';
+	}
+
+	// ----- test2 -----
+	try{
+		amauri = Bureaucrat("Amauri", 10);}
+	catch(const std::exception& e){
+		std::cerr << e.what() << '\n';
+	}
+
+	// ----- test3 -----
+	// try{
+	// 	jao = Bureaucrat("jao", 15);}
+	// catch(const std::exception& e){
+	// 	std::cerr << e.what() << '\n';
+	// }
+
+	// ----- test4 -----
+	for (size_t i = 0; i < 12; i++)
 	{
-		right.increment();
-		std::cout << right.getGrade() << std::endl;
+		try {
+			amauri.increment();
+			std::cout << amauri;
+		}
+		catch (const std::exception& e){
+			std::cerr << e.what() << '\n';
+		}
 	}
 	return 0;
 }

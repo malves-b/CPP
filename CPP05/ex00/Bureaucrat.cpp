@@ -1,43 +1,62 @@
 #include "Bureaucrat.hpp"
 
-Bureaucrat::Bureaucrat(std::string name, int grade) : name(name)
-{
-	try{
-		if (grade > 150)
-			throw GradeTooLowException();
-		if (grade < 1)
-			throw GradeTooHighException();
-		this->grade = grade;
-		std::cout << "Bureaucrat created" << std::endl;
+//Default constructor
+Bureaucrat::Bureaucrat() : name("default"), grade(150){
+	std::cout << "Default Bureaucrat created" << std::endl;
+}
+
+//Copy constructor
+Bureaucrat::Bureaucrat(const Bureaucrat &other): name(other.name){
+	this->grade = other.grade;
+}
+
+//Paramized constructor
+Bureaucrat::Bureaucrat(std::string name, int grade) : name(name){
+	if (grade > 150)
+		throw GradeTooLowException();
+	if (grade < 1)
+		throw GradeTooHighException();
+	this->grade = grade;
+	std::cout << this->name << " Bureaucrat created" << std::endl;
+}
+
+//Destructor
+Bureaucrat::~Bureaucrat(){std::cout << this->name << " Destroyed" << std::endl;}
+
+//Copy assignment operator
+Bureaucrat &Bureaucrat::operator=(const Bureaucrat &other){
+	if (this != &other){
+		const_cast<std::string&>(this->name) = other.name;
+		this->grade = other.grade;
 	}
-	catch(const std::exception& e){
-		std::cerr << e.what() << '\n';
-	}
+	return *this;	
 }
 
 std::string Bureaucrat::getName(){return this->name;}
 
 int Bureaucrat::getGrade(){return this->grade;}
 
-Bureaucrat Bureaucrat::increment()
+void	Bureaucrat::increment()
 {
 	if ((getGrade() - 1) < 1)
 		throw GradeTooHighException();
 	this->grade--;
-	return *this;
 }
 
-Bureaucrat Bureaucrat::decrement()
+void	Bureaucrat::decrement()
 {
 	if ((getGrade() - 1) > 150)
 		throw GradeTooLowException();
 	this->grade++;
-	return *this;
 }
 
 std::ostream& operator<<(std::ostream& os, Bureaucrat& obj)
 {
 	obj.getName();
-	os << obj.getName() << ", bureaucrat grade " << obj.getGrade();
+	os << obj.getName() << ": bureaucrat grade " << obj.getGrade() << std::endl;
 	return os;
 }
+
+const char *Bureaucrat::GradeTooLowException::what() const throw(){return "Grade is too low";}
+
+const char *Bureaucrat::GradeTooHighException::what() const throw(){return "Grade is too high";}
