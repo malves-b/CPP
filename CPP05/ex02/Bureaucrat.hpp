@@ -3,7 +3,7 @@
 #include <iostream>
 #include <string>
 #include <stdexcept>
-#include "Form.hpp"
+#include "AForm.hpp"
 
 #define reset	"\033[0m"
 #define red		"\033[31m"
@@ -26,7 +26,7 @@ public:
 	Bureaucrat& operator=(const Bureaucrat& other);
 
 	std::string getName();
-	int			getGrade();
+	int			getGrade() const;
 
 	void	increment();
 	void	decrement();
@@ -42,7 +42,7 @@ public:
 			virtual const char* what() const throw();
 	};
 
-	void	signForm(Form &frm);
+	void	signForm(AForm &frm);
 };
 
 std::ostream& operator<<(std::ostream& os, Bureaucrat& obj);

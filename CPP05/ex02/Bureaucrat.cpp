@@ -34,7 +34,7 @@ Bureaucrat &Bureaucrat::operator=(const Bureaucrat &other){
 
 std::string Bureaucrat::getName(){return this->name;}
 
-int Bureaucrat::getGrade(){return this->grade;}
+int Bureaucrat::getGrade() const {return this->grade;}
 
 void	Bureaucrat::increment()
 {
@@ -57,7 +57,7 @@ std::ostream& operator<<(std::ostream& os, Bureaucrat& obj)
 	return os;
 }
 
-void Bureaucrat::signForm(Form &frm)
+void Bureaucrat::signForm(AForm &frm)
 {
 	if (frm.getIsSigned()){
 		std::cout << this->getName() << ": The form is already signed." << std::endl;

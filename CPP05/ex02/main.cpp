@@ -1,17 +1,25 @@
 #include "Bureaucrat.hpp"
+#include "ShrubberyCreationForm.hpp"
 
 int main()
 {
-	Form frm = Form("Form", 75, 5);
+	ShrubberyCreationForm S1("test");
+	Bureaucrat brc("test", 149);
 
-	Bureaucrat b1 =  Bureaucrat("B1", 74);
-	Bureaucrat b2 =  Bureaucrat("B2", 76);
+	try {
+		brc.signForm(S1);
+	}
+	catch (const std::exception& e){
+		std::cout << e.what();
+	}
 
-	std::cout << frm;
-	std::cout << b1;
-	std::cout << b2;
-
-	b1.signForm(frm);
-	b2.signForm(frm);
+	try
+	{
+		S1.execute(brc);
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}	
 	return 0;
 }

@@ -2,7 +2,7 @@
 
 #include "Bureaucrat.hpp"
 
-class ShrubberyCreationForm : public Form
+class ShrubberyCreationForm : public AForm
 {
 private:
 	std::string _target;
@@ -14,4 +14,7 @@ public:
 
 	ShrubberyCreationForm &operator=(const ShrubberyCreationForm &other);
 
+	std::string	getTarget();
+
+	void	execute(Bureaucrat const &brc) const;
 };
