@@ -24,7 +24,7 @@ public:
 	int			getExeGrade();
 	int			getSignGrade();
 
-	void	beSigned(Bureaucrat &brc);
+	void	beSigned(Bureaucrat &executor);
 
 
 	class GradeTooHighException : public std::exception

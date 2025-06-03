@@ -39,9 +39,9 @@ int Form::getExeGrade(){return this->_exeGrade;}
 
 int Form::getSignGrade(){return this->_signGrade;}
 
-void Form::beSigned(Bureaucrat &brc)
+void Form::beSigned(Bureaucrat &executor)
 {
-	if (brc.getGrade() > this->getSignGrade()){
+	if (executor.getGrade() > this->getSignGrade()){
 		throw GradeTooLowException();
 	}
 	this->_signed = true;
