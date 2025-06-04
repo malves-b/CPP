@@ -6,7 +6,7 @@
 RobotomyRequestForm::RobotomyRequestForm(): AForm("default", 72, 45), _target("default"){}
 
 //Parametized constructor
-RobotomyRequestForm::RobotomyRequestForm(std::string target): AForm(target, 72, 45), _target(target){}
+RobotomyRequestForm::RobotomyRequestForm(std::string target): AForm("RobotomyRequestForm", 72, 45), _target(target){}
 
 //Copy constructor
 RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &cpy){*this = cpy;return;}

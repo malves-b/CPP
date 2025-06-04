@@ -4,7 +4,7 @@
 PresidentialPardonForm::PresidentialPardonForm(): AForm("default", 25, 5), _target("default"){}
 
 //Parametized constructor
-PresidentialPardonForm::PresidentialPardonForm(std::string target): AForm(target, 25, 5), _target(target){}
+PresidentialPardonForm::PresidentialPardonForm(std::string target): AForm("PresidentialPardonForm", 25, 5), _target(target){}
 
 //Copy constructor
 PresidentialPardonForm::PresidentialPardonForm(PresidentialPardonForm &cpy){*this = cpy;}

@@ -56,3 +56,4 @@ std::ostream &operator<<(std::ostream &os, AForm &obj)
 	" | grade to sign: " << obj.getSignGrade() << std::endl;
 	return os;
 }
+
