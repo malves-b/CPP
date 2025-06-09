@@ -1,5 +1,5 @@
 TARGET := Exe
-SRC := main.cpp .cpp
+SRC := main.cpp ScalarConverter.cpp
 CC = c++
 CFLAGS = -g -Wall -Wextra -Werror -std=c++98
 RM = rm -f
