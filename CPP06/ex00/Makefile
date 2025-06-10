@@ -1,4 +1,4 @@
-TARGET := Exe
+TARGET := convert
 SRC := main.cpp ScalarConverter.cpp
 CC = c++
 CFLAGS = -g -Wall -Wextra -Werror -std=c++98

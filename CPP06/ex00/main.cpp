@@ -1,7 +1,8 @@
 #include "ScalarConverter.hpp"
 
-int main(int argc, char const *argv[])
+int main(int argc, const char *argv[])
 {
-	ScalarConverter::convert(argv[1]);
-	return 0;
+	if (argc != 2)
+		return (std::cout << "Invalid numbers of arguments"), 1;
+	return (ScalarConverter::convert(argv[1])), 0;
 }

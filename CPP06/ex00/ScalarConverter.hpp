@@ -6,9 +6,14 @@
 #include <iomanip>
 #include <cstdlib>
 #include <limits>
+#include <cmath>
 
-#define INT_MAX = std::numeric_limits<int>::max
-#define INT_MIN = std::numeric_limits<int>::min
+#define INT_MAX		std::numeric_limits<int>::max()
+#define INT_MIN		std::numeric_limits<int>::min()
+#define FLOAT_MAX	std::numeric_limits<float>::max()
+#define FLOAT_MIN	std::numeric_limits<float>::min()
+#define DOUBLE_MAX	std::numeric_limits<double>::max()
+#define DOUBLE_MIN	std::numeric_limits<double>::min()
 
 class ScalarConverter
 {
@@ -19,29 +24,18 @@ class ScalarConverter
 
 	ScalarConverter &operator=(const ScalarConverter &other);
 
-	void	charManagement(std::string &str);
-	void	intManagement(std::string &str);
-	void	floatManagement(std::string &str);
-	void	doubleManagement(std::string &str);
-
-	void	setType(std::string &str);
+	static	void	charManagement(char c);
+	static	void	intManagement(const int nbr);
+	static	void	floatManagement(const float nbr);
+	static	void	doubleManagement(const double nbr);
 public:
 	static void convert(const std::string &str);
 
-	class ConversionError : public std::exception{
-	public:
-		const char *what() const noexcept override	{
-			return "Conversion error occurred";}
+	class ConversionError : public std::exception
+	{
+		public:
+			virtual const char *what() const throw ();
 	};
 };
 
-// template <typename T>
-// std::ostream& operator<<(std::ostream& os, T & type);
-
 #endif // SCALAR_CONVERTER
-
-// template <typename T>
-// std::ostream &operator<<(std::ostream &os, T &type)
-// {
-
-// }
