@@ -112,6 +112,9 @@ void ScalarConverter::convert(const std::string &str)
 
 	//double
 	std::strtod(str.c_str(), &rest);
-	if ((!rest[0] && nbr <= DOUBLE_MAX && nbr >= DOUBLE_MIN) || str == "nan" || str == "+inf" || str == "-inf")	{
+
+	if (!rest[0] || str == "nan" || str == "+inf" || str == "-inf")	{
 		return doubleManagement(std::strtod(str.c_str(), NULL));}
+
+	std::cout << "Invalid arguments" << std::endl;
 }
