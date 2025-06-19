@@ -1,4 +1,4 @@
-TARGET := Exe
+TARGET := ex00
 SRC := main.cpp
 CC = c++
 CFLAGS = -g -Wall -Wextra -Werror -std=c++98

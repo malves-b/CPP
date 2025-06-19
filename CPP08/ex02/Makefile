@@ -1,5 +1,5 @@
-TARGET := ex01
-SRC := main.cpp Span.cpp
+TARGET := ex02
+SRC := main.cpp
 CC = c++
 CFLAGS = -g -Wall -Wextra -Werror -std=c++98
 RM = rm -f
