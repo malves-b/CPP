@@ -3,6 +3,7 @@
 #include <cstdlib>
 
 int main() {
+
     // try {
     //     Span sp(10000);
 
@@ -17,6 +18,19 @@ int main() {
     //     std::cerr << "Error: " << e.what() << std::endl;
     // }
 
+	try {
+		Span sp(2);
+
+		std::vector<int> nums;
+		nums.insert(nums.end(), 1);
+		nums.insert(nums.end(), 2);
+		nums.insert(nums.end(), 4);
+		nums.insert(nums.end(), 8);
+		sp.addNumber(nums.begin(), nums.end());
+	}
+	catch (const std::exception& e) {
+		std::cerr << "Erro: " << e.what() << std::endl;
+	}
 
 	/* ----- Subject Main ----- */
 	Span sp = Span(5);
@@ -27,6 +41,7 @@ int main() {
 	sp.addNumber(11);
 	std::cout << sp.shortestSpan() << std::endl;
 	std::cout << sp.longestSpan() << std::endl;
+	/* ----- ----- ----- -----  */
 
     return 0;
 }

@@ -15,5 +15,4 @@ typename T::iterator easyfind(T& container, int value) {
     return it;
 }
 
-
 #endif // EASYFIND_HPP

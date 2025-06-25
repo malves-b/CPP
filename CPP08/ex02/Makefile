@@ -1,16 +1,16 @@
-TARGET := ex02
+NAME := btc
 SRC := main.cpp
 CC = c++
 CFLAGS = -g -Wall -Wextra -Werror -std=c++98
 RM = rm -f
 
-all: $(TARGET)
+all: $(NAME)
 
-$(TARGET): $(SRC)
-	$(CC) $(CFLAGS) -o $(TARGET) $(SRC)
+$(NAME): $(SRC)
+	$(CC) $(CFLAGS) -o $(NAME) $(SRC)
 
 clean:
-	$(RM) $(TARGET)
+	$(RM) $(NAME)
 
 fclean: clean
 
