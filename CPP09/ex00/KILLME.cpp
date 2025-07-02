@@ -7,10 +7,15 @@
 int main(void)
 {
 	std::map < int, std::string > map;
+	std::map < int, std::string >::iterator it;
 
-	map[0] = "number 1";
-	map[1] = "number 2";
-	map[2] = "number 3";
+	map.insert(std::pair<int, std::string>(0, "microfone"));
+	map.insert(std::pair<int, std::string>(1, "microfone"));
+	map.insert(std::pair<int, std::string>(2, "microfone"));
+	map.insert(std::pair<int, std::string>(3, "microfone"));
+	map.insert(std::pair<int, std::string>(4, "Mouse"));
+	map.insert(std::pair<int, std::string>(5, "Teclado"));
+	map.insert(std::pair<int, std::string>(6, "Monitor"));
 
 	//Add um novo elemento no container
 	map.insert(std::pair<int, std::string >(10, "New number"));
@@ -26,12 +31,19 @@ int main(void)
 
 	//apaga um elemento do container
 	map.erase(1);
+	//apaga um conjunto de elementos do container
+	map.erase(map.find(0), map.find(3));
 
-	if (map.find(3) != map.end())
-		std::cout << "Encontrou" << std::endl;
+	//apaga todos os elementos do container
+	// map.clear();
+
+	//metodo find procura um elemento dentro do container
+	if ((it = map.find(2)) != map.end()){
+		std::cout << "Produto encontrado" << std::endl;
+		std::cout << it->first << '-' << it->second << std::endl;
+	}else {std::cout << "Produto nao encontrado\n";}
 	
 
-	std::map <int, std::string>::const_iterator it;
 
 	for (it = map.begin(); it != map.end(); it++)
 	{

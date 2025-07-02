@@ -1,5 +1,5 @@
-TARGET := ex02
-SRC := main.cpp BitcoinExchange.cpp
+TARGET := btc
+SRC := main.cpp
 CC = c++
 CFLAGS = -g -Wall -Wextra -Werror -std=c++98
 RM = rm -f

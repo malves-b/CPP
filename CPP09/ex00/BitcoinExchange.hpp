@@ -2,16 +2,12 @@
 #define BITCOIN_EXCHANGE_HPP
 
 #include <iostream>
-
-class BitcoinExchange
-{
-private:
-
-public:
-	BitcoinExchange();
-	BitcoinExchange(BitcoinExchange &cpy);
-	~BitcoinExchange();
-};
+#include <algorithm>
+#include <map>
+#include <fstream>
+#include <sstream>
+#include <string>
+#include <cctype>
 
 
 
