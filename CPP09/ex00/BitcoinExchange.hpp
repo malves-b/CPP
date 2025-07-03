@@ -8,7 +8,9 @@
 #include <sstream>
 #include <string>
 #include <cctype>
+#include <regex.h>
 
+bool	match_regex(const char* pattern, const std::string&text);
 
 
 #endif // BITCOIN_EXCHANGE_HPP
