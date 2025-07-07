@@ -1,16 +1,28 @@
-#if !defined BITCOIN_EXCHANGE_HPP
-#define BITCOIN_EXCHANGE_HPP
+#ifndef BITCOINEXCHANGE_HPP
+#define BITCOINEXCHANGE_HPP
 
 #include <iostream>
-#include <algorithm>
-#include <map>
 #include <fstream>
 #include <sstream>
 #include <string>
-#include <cctype>
-#include <regex.h>
+#include <map>
+#include <cstdlib>
 
-bool	match_regex(const char* pattern, const std::string&text);
+class BitcoinExchange {
+	private:
+    std::map<std::string, double> prices;
 
+	public:
+    BitcoinExchange();
+    BitcoinExchange(BitcoinExchange &cpy);
+    ~BitcoinExchange();
+	BitcoinExchange& operator=(const BitcoinExchange &other);
 
-#endif // BITCOIN_EXCHANGE_HPP
+	void loadPrices(const std::string& filename);
+	double getClosestPrice(const std::string& date) const;
+	void processInputFile(const std::string& filename) const;
+	static bool isValidDate(const std::string& date);
+	static bool isValidValue(const std::string& valueStr, double& value);
+};
+
+#endif
