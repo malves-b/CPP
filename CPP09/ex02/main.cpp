@@ -9,14 +9,10 @@ int main(int argc, char const *argv[])
 		if (::atol(argv[i]) > 2147483647)
 			return std::cout << "Max integer overpast! " << std::endl, 1;
 	}
-	try
-	{
-		PmergeMe(argv);
-	}
-	catch(const std::exception& e)
-	{
-		std::cerr << e.what() << '\n';
-	}
+	std::vector<std::string> args(argv + 1, argv + argc);
+
+	PmergeMe pm(args);
+	pm.execute();
 	
 	return 0;
 }
