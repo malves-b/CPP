@@ -1,48 +1,45 @@
-#if !defined PMERGEME_HPP
+#ifndef PMERGEME_HPP
 #define PMERGEME_HPP
 
 #include <iostream>
-#include <string>
-#include <algorithm>
-#include <ctime>
-
 #include <vector>
 #include <deque>
+#include <string>
+#include <ctime>
+#include <cstdlib>
+#include <climits>
 
-class PmergeMe
-{
+class PmergeMe {
 private:
-	std::vector <int> _vectorBefore;
-	std::vector <int> _vectorAfter;
-	std::deque <int> _dequeBefore;
-	std::deque <int> _dequeAfter;
+    std::vector<int> _vectorBefore;
+    std::vector<int> _vectorAfter;
+    std::deque<int> _dequeBefore;
+    std::deque<int> _dequeAfter;
 
-	PmergeMe(void);
-	
-	void	initVector(std::vector<std::string> args);
+    PmergeMe();
+
+    size_t binarySearchVector(const std::vector<int>& vec, int value);
+    size_t binarySearchDeque(const std::deque<int>& deq, int value);
+    std::vector<int> sortVector(std::vector<int> nbrs);
+    std::deque<int> sortDeque(std::deque<int> nbrs);
+    void initContainers(std::vector<std::string> args);
 
 public:
-	PmergeMe(std::vector<std::string> args);
-	PmergeMe(PmergeMe& cpy);
-	PmergeMe& operator=(PmergeMe &other);
-	~PmergeMe();
+    PmergeMe(std::vector<std::string> args);
+    PmergeMe(const PmergeMe& cpy);
+    PmergeMe& operator=(const PmergeMe& other);
+    ~PmergeMe();
 
-	void	execute();
-
-	void	sortVector(std::vector<int>nbrs);
-	// void	PmergeMe::sortDeque();
-
+    void execute();
 };
 
 template <typename T>
-void	printContainer(T &container)
-{
-	typename T::const_iterator it;
-	for (it = container.begin(); it != container.end(); it++)
-	{
-		std::cout << *it << ' ';
-	}
-	std::cout << std::endl;
+void printContainer(const T& container) {
+    typename T::const_iterator it;
+    for (it = container.begin(); it != container.end(); ++it) {
+        std::cout << *it << ' ';
+    }
+    std::cout << std::endl;
 }
 
-#endif // PMERGEME_HPP
+#endif
